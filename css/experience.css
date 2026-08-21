@@ -1,0 +1,524 @@
+/* ========================================
+   NAVAO | The Experience — Bento Edition
+   ======================================== */
+
+.experience {
+  position: relative;
+  overflow: hidden;
+  padding-block: var(--section-space);
+  color: var(--color-text-light);
+  background-color: var(--color-black-deep);
+}
+
+/* Luz ambiental sutil */
+.experience::before {
+  content: "";
+  position: absolute;
+  top: -34%;
+  left: 50%;
+  width: min(1080px, 92vw);
+  aspect-ratio: 1;
+  pointer-events: none;
+  background: radial-gradient(
+    circle,
+    rgba(197, 164, 109, 0.08) 0%,
+    rgba(197, 164, 109, 0.022) 38%,
+    rgba(10, 10, 10, 0) 72%
+  );
+  transform: translateX(-50%);
+}
+
+.experience__inner {
+  position: relative;
+  z-index: 1;
+}
+
+/* ========================================
+   Encabezado editorial
+   ======================================== */
+
+.experience__header {
+  max-width: 980px;
+  margin-bottom: clamp(64px, 8vw, 112px);
+}
+
+.experience__kicker {
+  display: block;
+  margin-bottom: 22px;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+.experience__title {
+  max-width: none;
+  font-family: var(--font-display);
+  font-size: clamp(3.7rem, 6.5vw, 7.2rem);
+  font-weight: 400;
+  line-height: 0.96;
+  letter-spacing: -0.025em;
+  color: var(--color-text-light);
+}
+
+.experience__title em {
+  display: block;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-text-light);
+}
+
+.experience__intro {
+  max-width: 540px;
+  margin-top: clamp(26px, 3vw, 38px);
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 0.96rem + 0.25vw, 1.16rem);
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--color-text-muted-light);
+}
+
+/* ========================================
+   Bento Grid
+   ======================================== */
+
+.experience__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+.experience__card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+  padding: clamp(30px, 3.5vw, 48px);
+  background-color: var(--color-black-soft);
+  border: 1px solid rgba(250, 249, 246, 0.08);
+  border-radius: var(--radius-card);
+  isolation: isolate;
+  transition:
+    transform var(--transition-smooth),
+    border-color var(--transition-smooth),
+    box-shadow var(--transition-smooth),
+    background-color var(--transition-smooth);
+}
+
+/* Tarjeta dominante */
+.experience__card--featured {
+  min-height: 560px;
+  background:
+    radial-gradient(
+      circle at 52% 38%,
+      rgba(197, 164, 109, 0.08) 0%,
+      rgba(197, 164, 109, 0.025) 34%,
+      transparent 64%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(197, 164, 109, 0.055) 0%,
+      rgba(24, 24, 24, 0) 48%
+    ),
+    var(--color-black-soft);
+}
+
+/* Textura topográfica abstracta */
+.experience__card--featured::after {
+  content: "";
+  position: absolute;
+  inset: -16%;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    repeating-radial-gradient(
+      ellipse at 76% 28%,
+      transparent 0,
+      transparent 22px,
+      rgba(197, 164, 109, 0.055) 23px,
+      transparent 24px,
+      transparent 40px
+    ),
+    repeating-radial-gradient(
+      ellipse at 88% 72%,
+      transparent 0,
+      transparent 31px,
+      rgba(197, 164, 109, 0.035) 32px,
+      transparent 33px,
+      transparent 53px
+    );
+  opacity: 0.85;
+  transform: rotate(-7deg) scale(1.06);
+}
+
+/* Resplandor interior discreto */
+.experience__card::before {
+  content: "";
+  position: absolute;
+  top: -130px;
+  left: -110px;
+  z-index: 0;
+  width: 290px;
+  height: 290px;
+  pointer-events: none;
+  background: radial-gradient(
+    circle,
+    rgba(197, 164, 109, 0.1) 0%,
+    rgba(197, 164, 109, 0) 70%
+  );
+  opacity: 0;
+  transform: scale(0.86);
+  transition:
+    opacity var(--transition-smooth),
+    transform var(--transition-smooth);
+}
+
+.experience__card:hover,
+.experience__card:focus-within {
+  transform: translateY(-4px);
+  background-color: #1b1b1b;
+  border-color: rgba(250, 249, 246, 0.2);
+  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.24);
+}
+
+.experience__card:hover::before,
+.experience__card:focus-within::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.experience__card-top {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.experience__number {
+  display: inline-block;
+  flex-shrink: 0;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.12em;
+  color: var(--color-gold);
+  text-shadow: 0 0 0 rgba(197, 164, 109, 0);
+  transition:
+    color var(--transition-smooth),
+    text-shadow var(--transition-smooth),
+    transform var(--transition-smooth);
+}
+
+.experience__card:hover .experience__number,
+.experience__card:focus-within .experience__number {
+  color: #d8bc8b;
+  text-shadow: 0 0 22px rgba(197, 164, 109, 0.28);
+  transform: translateY(-2px);
+}
+
+/* Badges glass uniformes */
+.experience__meta,
+.experience__meta--sand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 30px;
+  max-width: 250px;
+  padding: 7px 14px;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--color-text-muted-light);
+  background-color: rgba(250, 249, 246, 0.06);
+  border: 1px solid rgba(250, 249, 246, 0.12);
+  border-radius: var(--radius-pill);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* ========================================
+   Ruta flexible animada
+   ======================================== */
+
+.experience__route {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 650px);
+  height: clamp(150px, 18vw, 220px);
+  margin: clamp(34px, 5vw, 64px) auto 28px;
+  pointer-events: none;
+}
+
+.experience__route-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.experience__route-path {
+  fill: none;
+  stroke: rgba(197, 164, 109, 0.34);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-dasharray: 5 8;
+  vector-effect: non-scaling-stroke;
+}
+
+.experience__route-line {
+  fill: none;
+  stroke: rgba(250, 249, 246, 0.09);
+  stroke-width: 8;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.experience__route-stop {
+  fill: var(--color-black-soft);
+  stroke: rgba(197, 164, 109, 0.72);
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
+}
+
+.experience__route-stop--middle {
+  fill: var(--color-gold);
+  stroke: rgba(250, 249, 246, 0.45);
+}
+
+.experience__route-traveler {
+  fill: var(--color-gold);
+  filter: drop-shadow(0 0 8px rgba(197, 164, 109, 0.72));
+  offset-path: path("M18 118 C112 20 196 196 292 102 S456 22 582 112");
+  offset-distance: 0%;
+  animation: experience-route-travel 8s ease-in-out infinite;
+}
+
+@keyframes experience-route-travel {
+  0% {
+    offset-distance: 0%;
+    opacity: 0;
+  }
+
+  8% {
+    opacity: 1;
+  }
+
+  92% {
+    opacity: 1;
+  }
+
+  100% {
+    offset-distance: 100%;
+    opacity: 0;
+  }
+}
+
+.experience__card-content {
+  position: relative;
+  z-index: 2;
+  margin-top: auto;
+}
+
+.experience__card-title {
+  margin-bottom: 16px;
+  font-family: var(--font-body);
+  font-size: clamp(1.45rem, 1.18rem + 0.85vw, 2rem);
+  font-weight: 500;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  color: var(--color-text-light);
+}
+
+.experience__card--featured .experience__card-title {
+  max-width: 12ch;
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 4.6vw, 5.5rem);
+  font-weight: 400;
+  line-height: 0.98;
+}
+
+.experience__card-text {
+  max-width: 40ch;
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--color-text-muted-light);
+}
+
+.experience__card--featured .experience__card-text {
+  max-width: 46ch;
+}
+
+.experience__card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  font-family: var(--font-body);
+  font-size: 0.76rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  transition:
+    gap var(--transition-hover),
+    color var(--transition-hover);
+}
+
+.experience__card-link:hover {
+  gap: 12px;
+  color: #d8bc8b;
+}
+
+/* ========================================
+   Escritorio — Bento asimétrico
+   ======================================== */
+
+@media (min-width: 900px) {
+  .experience__grid {
+    grid-template-columns: minmax(0, 1.7fr) minmax(300px, 1fr);
+    grid-template-rows: repeat(2, minmax(270px, auto));
+  }
+
+  .experience__card--featured {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  .experience__card:not(.experience__card--featured) {
+    min-height: 270px;
+  }
+}
+
+/* ========================================
+   Tablets
+   ======================================== */
+
+@media (min-width: 641px) and (max-width: 899px) {
+  .experience__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .experience__card--featured {
+    grid-column: 1 / -1;
+    min-height: 500px;
+  }
+}
+
+/* ========================================
+   Móviles
+   ======================================== */
+
+@media (max-width: 640px) {
+  .experience__header {
+    margin-bottom: 56px;
+  }
+
+  .experience__title {
+    font-size: clamp(3.3rem, 15vw, 5rem);
+  }
+
+  .experience__intro {
+    margin-top: 24px;
+  }
+
+  .experience__card,
+  .experience__card--featured {
+    min-height: 310px;
+    padding: 30px 26px;
+    border-radius: 18px;
+  }
+
+  .experience__card--featured {
+    min-height: 470px;
+  }
+
+  .experience__card-top {
+    flex-direction: column;
+  }
+
+  .experience__meta,
+  .experience__meta--sand {
+    max-width: 100%;
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  .experience__route {
+    height: 140px;
+    margin-block: 28px 24px;
+  }
+
+  .experience__card:hover,
+  .experience__card:focus-within {
+    transform: none;
+  }
+}
+
+/* ========================================
+   Accesibilidad y reveal
+   ======================================== */
+
+.js .experience [data-reveal] {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity var(--transition-reveal),
+    transform var(--transition-reveal);
+}
+
+.js .experience [data-reveal].is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.js .experience .experience__card[data-reveal].is-revealed:hover,
+.js .experience .experience__card[data-reveal].is-revealed:focus-within {
+  transform: translateY(-4px);
+}
+
+.js .experience [data-reveal-delay="1"] {
+  transition-delay: 110ms;
+}
+
+.js .experience [data-reveal-delay="2"] {
+  transition-delay: 220ms;
+}
+
+.js .experience [data-reveal-delay="3"] {
+  transition-delay: 330ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .experience__card,
+  .experience__card::before,
+  .experience__number,
+  .experience__card-link,
+  .experience [data-reveal] {
+    transition: none;
+  }
+
+  .experience__route-traveler {
+    animation: none;
+    offset-distance: 52%;
+    opacity: 1;
+  }
+
+  .js .experience [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+}

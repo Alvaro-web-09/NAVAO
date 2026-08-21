@@ -1,0 +1,321 @@
+/* ========================================
+   NAVAO | Quote — Conversion Section
+   ======================================== */
+
+.quote {
+  position: relative;
+  overflow: hidden;
+  padding-block: var(--section-space);
+  color: var(--color-text-light);
+  background-color: var(--color-black-deep);
+  background-image:
+    linear-gradient(
+      105deg,
+      rgba(10, 10, 10, 0.94) 0%,
+      rgba(10, 10, 10, 0.86) 40%,
+      rgba(10, 10, 10, 0.66) 100%
+    ),
+    url("../assets/images/quote-nicaragua.jpg");
+  background-size: cover;
+  background-position: right top;
+  background-repeat: no-repeat;
+  isolation: isolate;
+}
+
+/* Resplandor dorado ambiental */
+.quote::before {
+  content: "";
+  position: absolute;
+  top: -30%;
+  left: 50%;
+  z-index: 0;
+  width: min(1000px, 90vw);
+  aspect-ratio: 1;
+  pointer-events: none;
+  background: radial-gradient(
+    circle,
+    rgba(197, 164, 109, 0.1) 0%,
+    rgba(197, 164, 109, 0.025) 40%,
+    rgba(10, 10, 10, 0) 72%
+  );
+  transform: translateX(-50%);
+}
+
+.quote__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(48px, 7vw, 96px);
+}
+
+/* Columna editorial */
+.quote__header {
+  align-self: center;
+}
+
+.quote__kicker {
+  display: block;
+  margin-bottom: 20px;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+.quote__title {
+  max-width: 12ch;
+  font-family: var(--font-display);
+  font-size: clamp(3.2rem, 5.5vw, 6rem);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+  color: var(--color-text-light);
+}
+
+.quote__title em {
+  display: block;
+  font-style: italic;
+}
+
+.quote__lead {
+  max-width: 42ch;
+  margin-top: clamp(22px, 3vw, 32px);
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 0.96rem + 0.25vw, 1.16rem);
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--color-text-muted-light);
+}
+
+.quote__trust {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 28px;
+  padding: 9px 16px;
+  font-family: var(--font-body);
+  font-size: 0.74rem;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-text-muted-light);
+  background-color: rgba(197, 164, 109, 0.08);
+  border: 1px solid rgba(197, 164, 109, 0.28);
+  border-radius: var(--radius-pill);
+}
+
+.quote__trust-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: var(--color-black-deep);
+  background-color: var(--color-gold);
+  border-radius: 50%;
+}
+
+/* Tarjeta de formulario */
+.quote__card {
+  padding: clamp(28px, 4vw, 44px);
+  background-color: var(--color-black-soft);
+  border: 1px solid rgba(250, 249, 246, 0.08);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+
+.quote__form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.quote__field {
+  display: grid;
+  gap: 8px;
+}
+
+.quote__label {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted-light);
+}
+
+.quote__input,
+.quote__select {
+  width: 100%;
+  padding: 14px 16px;
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  color: var(--color-text-light);
+  background-color: rgba(250, 249, 246, 0.04);
+  border: 1px solid rgba(250, 249, 246, 0.14);
+  border-radius: var(--radius-small);
+  transition:
+    border-color var(--transition-hover),
+    background-color var(--transition-hover);
+}
+
+.quote__input::placeholder {
+  color: rgba(250, 249, 246, 0.4);
+}
+
+.quote__input:focus,
+.quote__select:focus {
+  outline: none;
+  border-color: var(--color-gold);
+  background-color: rgba(250, 249, 246, 0.07);
+}
+
+.quote__select {
+  cursor: pointer;
+  appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--color-gold) 50%),
+    linear-gradient(135deg, var(--color-gold) 50%, transparent 50%);
+  background-position:
+    calc(100% - 20px) center,
+    calc(100% - 15px) center;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+
+.quote__select option {
+  color: var(--color-black-deep);
+}
+
+.quote__row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+/* Boton de envio a WhatsApp */
+.quote__submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  margin-top: 6px;
+  padding: 16px 28px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--color-black-deep);
+  background-color: var(--color-ivory);
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition:
+    background-color var(--transition-hover),
+    color var(--transition-hover),
+    border-color var(--transition-hover),
+    transform var(--transition-hover),
+    box-shadow var(--transition-hover);
+}
+
+.quote__submit span {
+  display: inline-flex;
+  transition: transform var(--transition-hover);
+}
+
+.quote__submit:hover {
+  color: var(--color-ivory);
+  background-color: transparent;
+  border-color: rgba(250, 249, 246, 0.28);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-floating);
+}
+
+.quote__submit:hover span {
+  transform: translateX(3px);
+}
+
+.quote__note {
+  margin-top: 16px;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  line-height: 1.6;
+  text-align: center;
+  color: var(--color-text-muted-light);
+}
+
+/* ========================================
+   Escritorio
+   ======================================== */
+
+@media (min-width: 900px) {
+  .quote__inner {
+    grid-template-columns: minmax(0, 1fr) minmax(420px, 0.9fr);
+    align-items: center;
+  }
+
+  .quote__row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ========================================
+   Moviles
+   ======================================== */
+
+@media (max-width: 640px) {
+  .quote__title {
+    max-width: 10ch;
+    font-size: clamp(3rem, 13vw, 4.4rem);
+  }
+
+  .quote__card {
+    padding: 26px 22px;
+    border-radius: 18px;
+  }
+}
+
+/* ========================================
+   Reveal + accesibilidad
+   ======================================== */
+
+.js .quote [data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity var(--transition-reveal),
+    transform var(--transition-reveal);
+}
+
+.js .quote [data-reveal].is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.js .quote [data-reveal-delay="1"] {
+  transition-delay: 140ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quote__input,
+  .quote__select,
+  .quote__submit,
+  .quote__submit span,
+  .quote [data-reveal] {
+    transition: none;
+  }
+
+  .js .quote [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+}

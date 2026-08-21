@@ -1,0 +1,764 @@
+<!doctype html>
+<html lang="en" class="js">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="NAVAO offers private transportation for travelers, families and small groups across Nicaragua."
+    >
+    <meta name="theme-color" content="#0a0a0a">
+
+    <title>NAVAO | Private Transportation in Nicaragua</title>
+
+<link
+  rel="icon"
+  type="image/png"
+  href="./assets/images/navao-favicon.png"
+>
+
+    <!-- Optimized connection to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- NAVAO typography -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    >
+
+    <!-- NAVAO visual system -->
+    <link rel="stylesheet" href="./css/tokens.css">
+    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/components.css">
+    <link rel="stylesheet" href="./css/hero.css">
+    <link rel="stylesheet" href="./css/journeys.css">
+    <link rel="stylesheet" href="./css/experience.css">
+    <link rel="stylesheet" href="./css/quote.css">
+    <link rel="stylesheet" href="./css/footer.css">
+  </head>
+
+  <body id="top">
+    <!-- =============================
+         Navbar
+         ============================= -->
+    <header class="navbar" id="navbar">
+      <nav class="navbar__inner" aria-label="Primary navigation">
+        <a href="#top" class="navbar__logo" aria-label="NAVAO home">
+          <img src="./assets/logos/navao-logo.png" alt="NAVAO">
+        </a>
+
+        <div class="navbar__links">
+          <a href="#journeys" class="navbar__link">Journeys</a>
+          <a href="#fleet" class="navbar__link">The Fleet</a>
+          <a href="#experience" class="navbar__link">The Experience</a>
+        </div>
+
+        <a href="#quote" class="navbar__cta">Plan Your Journey</a>
+
+        <button
+          class="navbar__toggle"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+        >
+          <span aria-hidden="true">☰</span>
+        </button>
+      </nav>
+    </header>
+
+    <main>
+      <!-- =============================
+           Hero — The Horizon Frame
+           ============================= -->
+      <section class="hero" id="home">
+        <div class="hero__media">
+          <img
+            src="./assets/images/hero-nicaragua.jpg"
+            alt="Kayak on Lake Nicaragua at sunset with Ometepe Island in the distance"
+          >
+        </div>
+
+        <div class="hero__scrim" aria-hidden="true"></div>
+
+        <div class="hero__inner">
+          <p class="kicker hero__kicker">Journeys Through Nicaragua</p>
+
+          <h1 class="hero__title">
+            The country is wild.<br>
+            <em>Your journey isn&rsquo;t.</em>
+          </h1>
+
+          <p class="hero__subtitle">
+            Private transfers across Nicaragua, designed around your group.
+          </p>
+
+          <div class="hero__actions">
+            <a href="#quote" class="hero__cta">Start My Journey</a>
+
+            <a href="#journeys" class="hero__link-secondary">
+              Explore Journeys
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+
+        <aside class="hero__ticket" aria-label="Route preview">
+          <span class="hero__ticket-coords">
+            11&deg;30&prime;N&nbsp;&nbsp;85&deg;35&prime;W
+          </span>
+          <span class="hero__ticket-route">
+            MGA Airport → Ometepe Island
+          </span>
+          <span class="hero__ticket-status">Private &amp; Direct</span>
+        </aside>
+      </section>
+
+      <!-- =============================
+           Journeys — Professional Split
+           ============================= -->
+      <section class="journeys" id="journeys">
+        <div class="container">
+          <div class="journeys__grid">
+            <figure
+              class="journeys__visual"
+              data-journeys-carousel
+              data-reveal
+              aria-label="Journeys through Nicaragua"
+            >
+              <div class="journeys__carousel" aria-live="polite">
+                <div
+                  class="journeys__slide is-active"
+                  data-label="Volcanic trails"
+                  data-location="Adventure begins above the clouds."
+                >
+                  <img
+                    src="./assets/images/journeys/journey-airport.jpg"
+                    alt="Travelers hiking across a volcanic slope in Nicaragua"
+                    fetchpriority="high"
+                  >
+                </div>
+
+                <div
+                  class="journeys__slide"
+                  data-label="Waterside escapes"
+                  data-location="Slow down and take it all in."
+                  aria-hidden="true"
+                >
+                  <img
+                    src="./assets/images/journeys/journey-road.jpg"
+                    alt="Calm water surrounded by tropical vegetation and mountains in Nicaragua"
+                    loading="lazy"
+                  >
+                </div>
+
+                <div
+                  class="journeys__slide"
+                  data-label="Colonial streets"
+                  data-location="Color around every corner."
+                  aria-hidden="true"
+                >
+                  <img
+                    src="./assets/images/journeys/journey-coast.jpg"
+                    alt="Colorful colonial street in Nicaragua"
+                    loading="lazy"
+                  >
+                </div>
+
+                <div
+                  class="journeys__slide"
+                  data-label="Historic landmarks"
+                  data-location="Stories shaped in stone."
+                  aria-hidden="true"
+                >
+                  <img
+                    src="./assets/images/journeys/journey-volcano.jpg"
+                    alt="White domes and rooftop architecture of a historic cathedral in Nicaragua"
+                    loading="lazy"
+                  >
+                </div>
+              </div>
+
+              <div class="journeys__controls" aria-label="Carousel controls">
+                <button
+                  class="journeys__control"
+                  type="button"
+                  data-carousel-previous
+                  aria-label="Previous image"
+                >
+                  <span aria-hidden="true">←</span>
+                </button>
+
+                <button
+                  class="journeys__control"
+                  type="button"
+                  data-carousel-next
+                  aria-label="Next image"
+                >
+                  <span aria-hidden="true">→</span>
+                </button>
+              </div>
+
+              <figcaption class="journeys__visual-caption">
+                <div>
+                  <span
+                    class="journeys__visual-label"
+                    data-carousel-label
+                  >
+                    Volcanic trails
+                  </span>
+
+                  <p
+                    class="journeys__visual-location"
+                    data-carousel-location
+                  >
+                    Adventure begins above the clouds.
+                  </p>
+                </div>
+
+                <span
+                  class="journeys__visual-index"
+                  data-carousel-index
+                  aria-live="polite"
+                >
+                  01 / 04
+                </span>
+              </figcaption>
+
+              <div class="journeys__progress" aria-hidden="true">
+                <div
+                  class="journeys__progress-bar"
+                  data-carousel-progress
+                ></div>
+              </div>
+            </figure>
+
+            <div class="journeys__content">
+              <header
+                class="journeys__header"
+                data-reveal
+                data-reveal-delay="1"
+              >
+                <span class="journeys__kicker">Private Journeys</span>
+
+                <h2 class="journeys__title">
+                  From arrival to adventure.
+                </h2>
+
+                <p class="journeys__description">
+                  Private transportation shaped around your group,
+                  your route and your schedule.
+                </p>
+              </header>
+
+              <div class="journeys__list">
+                <article
+                  class="journeys__item is-active"
+                  data-journey-service="0"
+                  data-reveal
+                  data-reveal-delay="2"
+                  tabindex="0"
+                >
+                  <span class="journeys__num" aria-hidden="true">01</span>
+
+                  <div class="journeys__item-body">
+                    <h3 class="journeys__item-title">
+                      Airport to Destination
+                    </h3>
+                    <p class="journeys__item-text">
+                      Private pickups from Managua Airport to destinations
+                      across Nicaragua.
+                    </p>
+                  </div>
+                </article>
+
+                <article
+                  class="journeys__item"
+                  data-journey-service="1"
+                  data-reveal
+                  data-reveal-delay="3"
+                  tabindex="0"
+                >
+                  <span class="journeys__num" aria-hidden="true">02</span>
+
+                  <div class="journeys__item-body">
+                    <h3 class="journeys__item-title">Custom Routes</h3>
+                    <p class="journeys__item-text">
+                      Flexible transportation designed around your itinerary
+                      and group.
+                    </p>
+                  </div>
+                </article>
+
+                <article
+                  class="journeys__item"
+                  data-journey-service="3"
+                  data-reveal
+                  data-reveal-delay="4"
+                  tabindex="0"
+                >
+                  <span class="journeys__num" aria-hidden="true">03</span>
+
+                  <div class="journeys__item-body">
+                    <h3 class="journeys__item-title">
+                      Full-Day Mobility
+                    </h3>
+                    <p class="journeys__item-text">
+                      A dedicated vehicle and driver for days that take you
+                      beyond one destination.
+                    </p>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+
+          <aside class="journeys__note" data-reveal>
+            <div>
+              <span class="journeys__note-kicker">Ask a local</span>
+              <h2 class="journeys__note-title">
+                Local knowledge, freely shared.
+              </h2>
+            </div>
+
+            <div class="journeys__note-content">
+              <p
+                class="journeys__note-text"
+                data-typewriter
+              >
+                Transportation is what we do. Nicaragua is what we know.
+                Ask us about places to stay, local food or experiences
+                worth the detour.
+              </p>
+
+              <p class="journeys__note-trust">
+                <span class="journeys__note-trust-icon" aria-hidden="true">✓</span>
+                No prepayment &middot; Pay in person on arrival
+              </p>
+
+              <a href="#quote" class="journeys__note-link">
+                Ask NAVAO
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- =============================
+           The NAVAO Experience — Bento
+           ============================= -->
+      <section class="experience" id="experience">
+        <div class="container experience__inner">
+          <header
+            class="experience__header"
+            data-reveal
+            style="max-width: 900px; margin-inline: auto; text-align: center;"
+          >
+            <span class="experience__kicker">
+              The NAVAO Experience
+            </span>
+
+            <h2 class="experience__title">
+              Private by design.
+              <em>Personal by nature.</em>
+            </h2>
+
+            <p
+              class="experience__intro"
+              style="margin-inline: auto;"
+              data-typewriter
+            >
+              Thoughtful transportation built around the people,
+              timing and places that make every journey different.
+            </p>
+          </header>
+
+          <div class="experience__grid">
+            <!-- Tarjeta principal -->
+            <article
+              class="experience__card experience__card--featured"
+              data-reveal
+              data-reveal-delay="1"
+            >
+              <div class="experience__card-top">
+                <span class="experience__number" aria-hidden="true">
+                  01
+                </span>
+
+                <span class="experience__meta">
+                  Flexible Timing &middot; Private Routes
+                </span>
+              </div>
+
+              <!-- Ruta flexible animada -->
+              <div class="experience__route" aria-hidden="true">
+                <svg
+                  class="experience__route-svg"
+                  viewBox="0 0 600 220"
+                  role="presentation"
+                >
+                  <path
+                    class="experience__route-line"
+                    d="M18 118 C112 20 196 196 292 102 S456 22 582 112"
+                  ></path>
+                  <path
+                    class="experience__route-path"
+                    d="M18 118 C112 20 196 196 292 102 S456 22 582 112"
+                  ></path>
+                  <circle
+                    class="experience__route-stop"
+                    cx="18"
+                    cy="118"
+                    r="7"
+                  ></circle>
+                  <circle
+                    class="experience__route-stop experience__route-stop--middle"
+                    cx="292"
+                    cy="102"
+                    r="7"
+                  ></circle>
+                  <circle
+                    class="experience__route-stop"
+                    cx="582"
+                    cy="112"
+                    r="7"
+                  ></circle>
+                  <circle
+                    class="experience__route-traveler"
+                    cx="0"
+                    cy="0"
+                    r="5"
+                  ></circle>
+                </svg>
+              </div>
+
+              <div class="experience__card-content">
+                <h3 class="experience__card-title">
+                  Your Schedule
+                </h3>
+
+                <p class="experience__card-text">
+                  No fixed routes or shared departures. Your journey moves
+                  at your pace and around your plans.
+                </p>
+              </div>
+            </article>
+
+            <!-- Tarjeta secundaria -->
+            <article
+              class="experience__card"
+              data-reveal
+              data-reveal-delay="2"
+            >
+              <div class="experience__card-top">
+                <span class="experience__number" aria-hidden="true">
+                  02
+                </span>
+
+                <span class="experience__meta">
+                  Couples &middot; Families &middot; Small Groups
+                </span>
+              </div>
+
+              <div class="experience__card-content">
+                <h3 class="experience__card-title">
+                  Your Group
+                </h3>
+
+                <p class="experience__card-text">
+                  Always private. Thoughtful transportation for couples,
+                  families and small groups traveling together.
+                </p>
+              </div>
+            </article>
+
+            <!-- Tarjeta secundaria -->
+            <article
+              class="experience__card"
+              data-reveal
+              data-reveal-delay="3"
+            >
+              <div class="experience__card-top">
+                <span class="experience__number" aria-hidden="true">
+                  03
+                </span>
+
+                <span class="experience__meta">
+                  Local Knowledge &middot; Honestly Shared
+                </span>
+              </div>
+
+              <div class="experience__card-content">
+                <h3 class="experience__card-title">
+                  Local Perspective
+                </h3>
+
+                <p class="experience__card-text">
+                  More than directions. Honest recommendations from people
+                  who travel, explore and know Nicaragua.
+                </p>
+
+                <a href="#quote" class="experience__card-link">
+                  Ask for local insights
+                  <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- =============================
+           Quote — Conversion
+           ============================= -->
+      <section class="quote" id="quote">
+        <div class="container quote__inner">
+          <div class="quote__header" data-reveal>
+            <span class="quote__kicker">Plan Your Journey</span>
+
+            <h2 class="quote__title">
+              Tell us where.
+              <em>We&rsquo;ll take you there.</em>
+            </h2>
+
+            <p class="quote__lead" data-typewriter>
+              Share a few details and we&rsquo;ll reply on WhatsApp with a
+              private quote for your group. No accounts, no pressure.
+            </p>
+
+            <p class="quote__trust">
+              <span class="quote__trust-icon" aria-hidden="true">✓</span>
+              No prepayment &middot; Pay in person on arrival
+            </p>
+          </div>
+
+          <div class="quote__card" data-reveal data-reveal-delay="1">
+            <form
+              class="quote__form"
+              data-quote-form
+              novalidate
+            >
+              <div class="quote__field">
+                <label class="quote__label" for="quote-name">Your name</label>
+                <input
+                  class="quote__input"
+                  id="quote-name"
+                  name="name"
+                  type="text"
+                  placeholder="Jane Traveler"
+                  autocomplete="name"
+                  required
+                >
+              </div>
+
+              <div class="quote__row">
+                <div class="quote__field">
+                  <label class="quote__label" for="quote-date">Travel date</label>
+                  <input
+                    class="quote__input"
+                    id="quote-date"
+                    name="date"
+                    type="date"
+                  >
+                </div>
+
+                <div class="quote__field">
+                  <label class="quote__label" for="quote-passengers">Passengers</label>
+                  <select
+                    class="quote__select"
+                    id="quote-passengers"
+                    name="passengers"
+                  >
+                    <option value="1–3">1–3</option>
+                    <option value="4–6">4–6</option>
+                    <option value="7–10">7–10</option>
+                    <option value="10+">10+</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="quote__row">
+                <div class="quote__field">
+                  <label class="quote__label" for="quote-from">Pick-up</label>
+                  <input
+                    class="quote__input"
+                    id="quote-from"
+                    name="from"
+                    type="text"
+                    placeholder="Managua Airport"
+                  >
+                </div>
+
+                <div class="quote__field">
+                  <label class="quote__label" for="quote-to">Destination</label>
+                  <input
+                    class="quote__input"
+                    id="quote-to"
+                    name="to"
+                    type="text"
+                    placeholder="Ometepe Island"
+                  >
+                </div>
+              </div>
+
+              <div class="quote__field">
+                <label class="quote__label" for="quote-notes">Anything else?</label>
+                <input
+                  class="quote__input"
+                  id="quote-notes"
+                  name="notes"
+                  type="text"
+                  placeholder="Luggage, kids, timing&hellip;"
+                >
+              </div>
+
+              <button class="quote__submit" type="submit">
+                Send on WhatsApp
+                <span aria-hidden="true">→</span>
+              </button>
+
+              <p class="quote__note">
+                Opens WhatsApp with your details ready to send.
+              </p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- =============================
+         Footer
+         ============================= -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__top">
+          <div class="footer__brand" data-reveal>
+            <a href="#top" class="footer__logo" aria-label="NAVAO home">
+              <img src="./assets/logos/navao-logo.png" alt="NAVAO">
+            </a>
+
+            <p class="footer__tagline">
+              Your Adventure. Our Transportation.
+            </p>
+
+            <p class="footer__blurb">
+              Private transportation for travelers, families and small
+              groups across Nicaragua.
+            </p>
+          </div>
+
+          <div class="footer__cols" data-reveal>
+            <div>
+              <p class="footer__col-title">Explore</p>
+              <div class="footer__list">
+                <a href="#journeys" class="footer__link">Journeys</a>
+                <a href="#experience" class="footer__link">The Experience</a>
+                <a href="#quote" class="footer__link">Plan Your Journey</a>
+              </div>
+            </div>
+
+            <div>
+              <p class="footer__col-title">Contact</p>
+              <div class="footer__list">
+                <a
+                  class="footer__link"
+                  href="https://wa.me/5058936583?text=Hello%20NAVAO%2C%20I%20would%20like%20a%20private%20transportation%20quote."
+                  target="_blank"
+                  rel="noopener"
+                >
+                  WhatsApp
+                </a>
+                <p class="footer__meta">Managua, Nicaragua</p>
+              </div>
+            </div>
+
+            <div>
+              <p class="footer__col-title">Follow</p>
+              <div class="footer__list">
+                <button
+                  class="footer__link"
+                  type="button"
+                  data-social-soon
+                >
+                  Instagram
+                </button>
+                <button
+                  class="footer__link"
+                  type="button"
+                  data-social-soon
+                >
+                  Facebook
+                </button>
+                <button
+                  class="footer__link"
+                  type="button"
+                  data-social-soon
+                >
+                  TikTok
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer__bottom">
+          <p class="footer__copy">
+            &copy; 2026 NAVAO &middot; Private transportation in Nicaragua
+          </p>
+
+          <p class="footer__trust">
+            <span class="footer__trust-icon" aria-hidden="true">✓</span>
+            No prepayment &middot; Pay in person
+          </p>
+        </div>
+      </div>
+
+      <!-- Aviso "coming soon" para redes -->
+      <div
+        class="footer__toast"
+        data-footer-toast
+        role="status"
+        aria-live="polite"
+        aria-hidden="true"
+      >
+        <span class="footer__toast-icon" aria-hidden="true"></span>
+        <div>
+          <p class="footer__toast-title">We&rsquo;re just getting started.</p>
+          <p class="footer__toast-text">
+            Our social journey is coming soon. Be one of our first
+            travelers and you might appear right here.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- =============================
+         NAVAO scripts
+         ============================= -->
+    <script src="./js/main.js"></script>
+    <script src="./js/journeys-carousel.js"></script>
+    <script src="./js/reveal.js"></script>
+    <script src="./js/typewriter.js"></script>
+    <script src="./js/quote.js"></script>
+    <script src="./js/footer.js"></script>
+
+    <!-- =============================
+         Floating WhatsApp button
+         ============================= -->
+    <a
+      class="whatsapp-fab"
+      href="https://wa.me/5058936583?text=Hello%20NAVAO%2C%20I%20would%20like%20a%20private%20transportation%20quote."
+      target="_blank"
+      rel="noopener"
+      aria-label="Chat on WhatsApp"
+    >
+      <span class="whatsapp-fab__icon" aria-hidden="true">
+        <svg viewBox="0 0 32 32" fill="currentColor">
+          <path d="M16.04 4C9.9 4 4.92 8.98 4.92 15.12c0 2.05.55 4.05 1.6 5.8L4.8 27l6.25-1.64a11.1 11.1 0 0 0 4.99 1.2h.01c6.14 0 11.12-4.98 11.12-11.12C27.17 8.98 22.19 4 16.04 4Zm0 20.28h-.01c-1.53 0-3.03-.41-4.34-1.19l-.31-.18-3.71.97.99-3.62-.2-.32a9.16 9.16 0 0 1-1.4-4.86c0-5.07 4.13-9.2 9.2-9.2 2.46 0 4.77.96 6.5 2.7a9.13 9.13 0 0 1 2.69 6.5c0 5.07-4.13 9.2-9.1 9.2Zm5.05-6.89c-.28-.14-1.63-.8-1.89-.9-.25-.09-.43-.14-.62.14-.18.28-.71.9-.87 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.23-1.37-.82-.73-1.38-1.64-1.54-1.92-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.62-1.5-.85-2.05-.22-.53-.45-.46-.62-.47l-.53-.01c-.18 0-.48.07-.73.35-.25.28-.96.94-.96 2.3s.98 2.66 1.12 2.85c.14.18 1.93 2.95 4.68 4.14.65.28 1.16.45 1.56.58.65.21 1.25.18 1.72.11.52-.08 1.63-.67 1.86-1.31.23-.64.23-1.19.16-1.31-.07-.12-.25-.19-.53-.33Z"></path>
+        </svg>
+      </span>
+      <span class="whatsapp-fab__label">Chat with us</span>
+    </a>
+  </body>
+</html>
