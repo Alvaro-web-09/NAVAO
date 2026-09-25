@@ -11,11 +11,11 @@
 
     <title>NAVAO | Private Transportation in Nicaragua</title>
 
-<link
-  rel="icon"
-  type="image/png"
-  href="./assets/images/navao-favicon.png"
->
+    <link
+      rel="icon"
+      type="image/png"
+      href="./assets/images/navao-favicon.png"
+    >
 
     <!-- Optimized connection to Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="./css/components.css">
     <link rel="stylesheet" href="./css/hero.css">
     <link rel="stylesheet" href="./css/journeys.css">
+    <link rel="stylesheet" href="./css/fleet.css">
     <link rel="stylesheet" href="./css/experience.css">
     <link rel="stylesheet" href="./css/quote.css">
     <link rel="stylesheet" href="./css/footer.css">
@@ -62,7 +63,7 @@
           aria-label="Open menu"
           aria-expanded="false"
         >
-          <span aria-hidden="true">☰</span>
+          <span aria-hidden="true">&#9776;</span>
         </button>
       </nav>
     </header>
@@ -98,7 +99,7 @@
 
             <a href="#journeys" class="hero__link-secondary">
               Explore Journeys
-              <span aria-hidden="true">→</span>
+              <span aria-hidden="true">&#8594;</span>
             </a>
           </div>
         </div>
@@ -108,7 +109,7 @@
             11&deg;30&prime;N&nbsp;&nbsp;85&deg;35&prime;W
           </span>
           <span class="hero__ticket-route">
-            MGA Airport → Ometepe Island
+            MGA Airport &#8594; Ometepe Island
           </span>
           <span class="hero__ticket-status">Private &amp; Direct</span>
         </aside>
@@ -186,7 +187,7 @@
                   data-carousel-previous
                   aria-label="Previous image"
                 >
-                  <span aria-hidden="true">←</span>
+                  <span aria-hidden="true">&#8592;</span>
                 </button>
 
                 <button
@@ -195,7 +196,7 @@
                   data-carousel-next
                   aria-label="Next image"
                 >
-                  <span aria-hidden="true">→</span>
+                  <span aria-hidden="true">&#8594;</span>
                 </button>
               </div>
 
@@ -332,16 +333,177 @@
               </p>
 
               <p class="journeys__note-trust">
-                <span class="journeys__note-trust-icon" aria-hidden="true">✓</span>
+                <span class="journeys__note-trust-icon" aria-hidden="true">&#10003;</span>
                 No prepayment &middot; Pay in person on arrival
               </p>
 
               <a href="#quote" class="journeys__note-link">
                 Ask NAVAO
-                <span aria-hidden="true">→</span>
+                <span aria-hidden="true">&#8594;</span>
               </a>
             </div>
           </aside>
+        </div>
+      </section>
+
+      <!-- =============================
+           The Fleet — 3D pop-out cards
+           ============================= -->
+      <section class="fleet" id="fleet">
+        <div class="container">
+
+          <header class="fleet__header" data-reveal>
+            <div class="fleet__intro">
+              <span class="fleet__kicker">The Fleet</span>
+
+              <h2 class="fleet__title">
+                Every journey has
+                <em>its own vehicle.</em>
+              </h2>
+
+              <p class="fleet__description" data-typewriter>
+                Four, seven or eleven seats. The vehicle changes with your
+                group. Everything else stays the same.
+              </p>
+            </div>
+
+            <ul class="fleet__amenities">
+              <li class="fleet__amenity">
+                <span class="fleet__amenity-name">Cool air, always on</span>
+                <span class="fleet__amenity-note">Climate</span>
+              </li>
+              <li class="fleet__amenity">
+                <span class="fleet__amenity-name">Tinted windows</span>
+                <span class="fleet__amenity-note">Privacy &amp; shade</span>
+              </li>
+              <li class="fleet__amenity">
+                <span class="fleet__amenity-name">Your music, your volume</span>
+                <span class="fleet__amenity-note">Bluetooth</span>
+              </li>
+              <li class="fleet__amenity">
+                <span class="fleet__amenity-name">Room for every bag</span>
+                <span class="fleet__amenity-note">Luggage</span>
+              </li>
+            </ul>
+          </header>
+
+          <div class="fleet__grid">
+
+            <!-- ---------- 01 · Kia Soluto ---------- -->
+            <article class="fleet__card" data-reveal data-reveal-delay="1">
+              <div class="fleet__stage">
+                <img
+                  class="fleet__vehicle fleet__vehicle--soluto"
+                  src="./assets/images/fleet/soluto.png"
+                  alt="Kia Soluto sedan, NAVAO fleet"
+                  loading="lazy"
+                  decoding="async"
+                >
+                <span class="fleet__shadow" aria-hidden="true"></span>
+              </div>
+
+              <div class="fleet__panel">
+                <span class="fleet__index" aria-hidden="true">01</span>
+
+                <h3 class="fleet__name">Kia Soluto</h3>
+                <p class="fleet__type">Sedan</p>
+
+                <div class="fleet__capacity">
+                  <span class="fleet__capacity-num">4</span>
+                  <span class="fleet__capacity-label">Passengers</span>
+                </div>
+
+                <p class="fleet__text">
+                  For two, or for four. Quiet through colonial streets and
+                  easy on the long stretches between them.
+                </p>
+
+                <a href="#quote" class="fleet__link">
+                  Request this vehicle
+                  <span aria-hidden="true">&#8594;</span>
+                </a>
+              </div>
+            </article>
+
+            <!-- ---------- 02 · Toyota Rush ---------- -->
+            <article class="fleet__card" data-reveal data-reveal-delay="2">
+              <div class="fleet__stage">
+                <img
+                  class="fleet__vehicle fleet__vehicle--rush"
+                  src="./assets/images/fleet/rush.png"
+                  alt="Toyota Rush SUV, NAVAO fleet"
+                  loading="lazy"
+                  decoding="async"
+                >
+                <span class="fleet__shadow" aria-hidden="true"></span>
+              </div>
+
+              <div class="fleet__panel">
+                <span class="fleet__index" aria-hidden="true">02</span>
+
+                <h3 class="fleet__name">Toyota Rush</h3>
+                <p class="fleet__type">SUV</p>
+
+                <div class="fleet__capacity">
+                  <span class="fleet__capacity-num">7</span>
+                  <span class="fleet__capacity-label">Passengers</span>
+                </div>
+
+                <p class="fleet__text">
+                  For families and friends. Built for volcano roads, beach
+                  access and the routes that were never paved.
+                </p>
+
+                <a href="#quote" class="fleet__link">
+                  Request this vehicle
+                  <span aria-hidden="true">&#8594;</span>
+                </a>
+              </div>
+            </article>
+
+            <!-- ---------- 03 · Karry Microbús ---------- -->
+            <article class="fleet__card" data-reveal data-reveal-delay="3">
+              <div class="fleet__stage">
+                <img
+                  class="fleet__vehicle fleet__vehicle--karry"
+                  src="./assets/images/fleet/karry.png"
+                  alt="Karry microbus, NAVAO fleet"
+                  loading="lazy"
+                  decoding="async"
+                >
+                <span class="fleet__shadow" aria-hidden="true"></span>
+              </div>
+
+              <div class="fleet__panel">
+                <span class="fleet__index" aria-hidden="true">03</span>
+
+                <h3 class="fleet__name">Karry Microb&uacute;s</h3>
+                <p class="fleet__type">Passenger Van</p>
+
+                <div class="fleet__capacity">
+                  <span class="fleet__capacity-num">11</span>
+                  <span class="fleet__capacity-label">Passengers</span>
+                </div>
+
+                <p class="fleet__text">
+                  For everyone at once. Three rows, one driver, and nobody
+                  left waiting for a second car.
+                </p>
+
+                <a href="#quote" class="fleet__link">
+                  Request this vehicle
+                  <span aria-hidden="true">&#8594;</span>
+                </a>
+              </div>
+            </article>
+
+          </div>
+
+          <p class="fleet__note" data-reveal>
+            Not sure which one fits? Tell us your group, your luggage and
+            your route &mdash; we&rsquo;ll recommend the right vehicle.
+          </p>
+
         </div>
       </section>
 
@@ -501,7 +663,7 @@
 
                 <a href="#quote" class="experience__card-link">
                   Ask for local insights
-                  <span aria-hidden="true">→</span>
+                  <span aria-hidden="true">&#8594;</span>
                 </a>
               </div>
             </article>
@@ -528,7 +690,7 @@
             </p>
 
             <p class="quote__trust">
-              <span class="quote__trust-icon" aria-hidden="true">✓</span>
+              <span class="quote__trust-icon" aria-hidden="true">&#10003;</span>
               No prepayment &middot; Pay in person on arrival
             </p>
           </div>
@@ -570,10 +732,10 @@
                     id="quote-passengers"
                     name="passengers"
                   >
-                    <option value="1–3">1–3</option>
-                    <option value="4–6">4–6</option>
-                    <option value="7–10">7–10</option>
-                    <option value="10+">10+</option>
+                    <option value="1&ndash;4">1&ndash;4 &middot; Sedan</option>
+                    <option value="5&ndash;7">5&ndash;7 &middot; SUV</option>
+                    <option value="8&ndash;11">8&ndash;11 &middot; Microb&uacute;s</option>
+                    <option value="11+">More than 11</option>
                   </select>
                 </div>
               </div>
@@ -615,7 +777,7 @@
 
               <button class="quote__submit" type="submit">
                 Send on WhatsApp
-                <span aria-hidden="true">→</span>
+                <span aria-hidden="true">&#8594;</span>
               </button>
 
               <p class="quote__note">
@@ -653,6 +815,7 @@
               <p class="footer__col-title">Explore</p>
               <div class="footer__list">
                 <a href="#journeys" class="footer__link">Journeys</a>
+                <a href="#fleet" class="footer__link">The Fleet</a>
                 <a href="#experience" class="footer__link">The Experience</a>
                 <a href="#quote" class="footer__link">Plan Your Journey</a>
               </div>
@@ -708,7 +871,7 @@
           </p>
 
           <p class="footer__trust">
-            <span class="footer__trust-icon" aria-hidden="true">✓</span>
+            <span class="footer__trust-icon" aria-hidden="true">&#10003;</span>
             No prepayment &middot; Pay in person
           </p>
         </div>
@@ -722,7 +885,7 @@
         aria-live="polite"
         aria-hidden="true"
       >
-        <span class="footer__toast-icon" aria-hidden="true"></span>
+        <span class="footer__toast-icon" aria-hidden="true"></span>
         <div>
           <p class="footer__toast-title">We&rsquo;re just getting started.</p>
           <p class="footer__toast-text">

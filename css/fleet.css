@@ -1,0 +1,454 @@
+/* =========================================================
+   NAVAO — The Fleet
+   3D pop-out vehicle cards
+   Load order: tokens.css → global.css → components.css →
+               hero.css → journeys.css → fleet.css → ...
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   Local fallbacks.
+   If tokens.css already defines these names, tokens.css wins
+   and this block does nothing. Adjust the names below to
+   match tokens.css if yours differ.
+   --------------------------------------------------------- */
+.fleet {
+  --fleet-ink: var(--color-ink, #0a0a0a);
+  --fleet-surface: var(--color-surface, #101010);
+  --fleet-line: var(--color-line, rgba(255, 255, 255, 0.12));
+  --fleet-text: var(--color-text, #f4f2ef);
+  --fleet-muted: var(--color-muted, rgba(244, 242, 239, 0.58));
+  --fleet-accent: var(--color-accent, #c8a26a);
+  --fleet-serif: var(--font-serif, "Instrument Serif", Georgia, serif);
+  --fleet-sans: var(--font-sans, "Inter", system-ui, sans-serif);
+
+  position: relative;
+  padding: clamp(5rem, 10vw, 9rem) 0 clamp(6rem, 11vw, 10rem);
+  background: var(--fleet-ink);
+  color: var(--fleet-text);
+  overflow: hidden;
+}
+
+/* Warm horizon glow rising from the baseline.
+   Mirrors the sunset temperature of hero-nicaragua.jpg. */
+.fleet::before {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 60%;
+  background: radial-gradient(
+    80% 100% at 50% 100%,
+    rgba(200, 162, 106, 0.1) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.fleet > .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================================================
+   Header
+   ========================================================= */
+.fleet__header {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  align-items: end;
+  gap: clamp(2.5rem, 6vw, 5rem);
+  margin-bottom: clamp(4rem, 8vw, 7rem);
+}
+
+.fleet__intro {
+  max-width: 34rem;
+}
+
+.fleet__kicker {
+  display: block;
+  margin-bottom: 1.25rem;
+  font-family: var(--fleet-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--fleet-accent);
+}
+
+.fleet__title {
+  margin: 0 0 1.25rem;
+  font-family: var(--fleet-serif);
+  font-weight: 400;
+  font-size: clamp(2.25rem, 5.5vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+}
+
+.fleet__title em {
+  font-style: italic;
+  color: var(--fleet-muted);
+}
+
+.fleet__description {
+  margin: 0;
+  max-width: 34rem;
+  font-family: var(--fleet-sans);
+  font-size: clamp(1rem, 1.6vw, 1.125rem);
+  line-height: 1.65;
+  color: var(--fleet-muted);
+}
+
+/* ---------------------------------------------------------
+   Shared amenities.
+   These belong to the whole fleet, not to any single vehicle,
+   so they live beside the title instead of inside the cards.
+   --------------------------------------------------------- */
+.fleet__amenities {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--fleet-line);
+}
+
+.fleet__amenity {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 0.95rem 0;
+  border-bottom: 1px solid var(--fleet-line);
+}
+
+.fleet__amenity-name {
+  font-family: var(--fleet-sans);
+  font-size: 0.9375rem;
+  line-height: 1.4;
+  color: var(--fleet-text);
+}
+
+.fleet__amenity-note {
+  flex-shrink: 0;
+  font-family: var(--fleet-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fleet-muted);
+}
+
+/* =========================================================
+   Grid — the 3D scene
+   ========================================================= */
+.fleet__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  perspective: 1600px;
+  perspective-origin: 50% 40%;
+}
+
+/* =========================================================
+   Card
+   ========================================================= */
+.fleet__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  /* Headroom so the vehicle can break out of the panel */
+  padding-top: clamp(3.5rem, 7vw, 6rem);
+  transform-style: preserve-3d;
+  transform: rotateX(0deg) rotateY(0deg) translateZ(0);
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.fleet__card:hover,
+.fleet__card:focus-within {
+  transform: rotateX(6deg) rotateY(-4deg) translateZ(18px);
+}
+
+/* First card angles the opposite way so the row opens outward */
+.fleet__card:first-child:hover,
+.fleet__card:first-child:focus-within {
+  transform: rotateX(6deg) rotateY(6deg) translateZ(18px);
+}
+
+/* =========================================================
+   Stage — where the vehicle floats
+   ========================================================= */
+.fleet__stage {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  /* Pull the stage down over the panel's top edge */
+  margin-bottom: clamp(-3.5rem, -5vw, -2.5rem);
+  transform-style: preserve-3d;
+  pointer-events: none;
+}
+
+/* The vehicle, pushed forward in Z so it truly leaves the card.
+   filter: matches the NAVAO grade — slightly desaturated,
+   medium contrast, warm highlights against cool shadow. */
+.fleet__vehicle {
+  display: block;
+  width: 100%;
+  max-width: 105%;
+  height: auto;
+  transform: translateZ(90px) scale(1.02);
+  transform-origin: 50% 100%;
+  filter:
+    saturate(0.94)
+    contrast(1.06)
+    drop-shadow(0 26px 30px rgba(10, 14, 24, 0.55));
+  transition:
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.65s ease;
+  will-change: transform;
+}
+
+.fleet__card:hover .fleet__vehicle,
+.fleet__card:focus-within .fleet__vehicle {
+  transform: translateZ(130px) scale(1.07);
+  filter:
+    saturate(0.94)
+    contrast(1.06)
+    drop-shadow(0 38px 42px rgba(10, 14, 24, 0.6));
+}
+
+/* ---------------------------------------------------------
+   Per-vehicle scale.
+   Real heights: Soluto 1.47 m · Rush 1.70 m · Karry 1.93 m.
+   Keeps the sedan from reading as large as the microbus.
+   --------------------------------------------------------- */
+.fleet__vehicle--soluto {
+  width: 76%;
+}
+
+.fleet__vehicle--rush {
+  width: 88%;
+}
+
+.fleet__vehicle--karry {
+  width: 100%;
+}
+
+/* Contact shadow on the ground — cool, matching hero shadows */
+.fleet__shadow {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(0.5rem, 1.5vw, 1rem);
+  width: 62%;
+  height: 1.4rem;
+  transform: translateX(-50%) translateZ(30px);
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(18, 22, 34, 0.62) 0%,
+    transparent 72%
+  );
+  filter: blur(6px);
+  transition: opacity 0.65s ease, width 0.65s ease;
+}
+
+.fleet__card:hover .fleet__shadow,
+.fleet__card:focus-within .fleet__shadow {
+  width: 70%;
+  opacity: 0.75;
+}
+
+/* =========================================================
+   Panel — the card body the vehicle pops out of
+   ========================================================= */
+.fleet__panel {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding:
+    clamp(4rem, 7vw, 5.5rem)
+    clamp(1.5rem, 2.6vw, 2.25rem)
+    clamp(1.75rem, 3vw, 2.5rem);
+  border: 1px solid var(--fleet-line);
+  border-radius: 0.25rem;
+  background-color: var(--fleet-surface);
+  background-image: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.045) 0%,
+    rgba(255, 255, 255, 0.012) 45%,
+    transparent 100%
+  );
+  overflow: hidden;
+  transition: border-color 0.5s ease, background-color 0.5s ease;
+}
+
+.fleet__card:hover .fleet__panel,
+.fleet__card:focus-within .fleet__panel {
+  border-color: rgba(200, 162, 106, 0.35);
+  background-color: #141414;
+}
+
+/* Index number — same language as .journeys__num */
+.fleet__index {
+  position: absolute;
+  top: clamp(1.1rem, 2vw, 1.5rem);
+  left: clamp(1.5rem, 2.6vw, 2.25rem);
+  font-family: var(--fleet-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: var(--fleet-muted);
+}
+
+.fleet__name {
+  margin: 0 0 0.35rem;
+  font-family: var(--fleet-serif);
+  font-weight: 400;
+  font-size: clamp(1.5rem, 2.4vw, 1.875rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.fleet__type {
+  margin: 0 0 1.5rem;
+  font-family: var(--fleet-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fleet-accent);
+}
+
+/* ---------- Capacity — the hero stat of each card ---------- */
+.fleet__capacity {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  padding: 1.1rem 0;
+  border-top: 1px solid var(--fleet-line);
+  border-bottom: 1px solid var(--fleet-line);
+  margin-bottom: 1.35rem;
+}
+
+.fleet__capacity-num {
+  font-family: var(--fleet-serif);
+  font-size: clamp(2.5rem, 4.4vw, 3.5rem);
+  line-height: 0.85;
+  letter-spacing: -0.03em;
+  color: var(--fleet-text);
+}
+
+.fleet__capacity-label {
+  font-family: var(--fleet-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fleet-muted);
+}
+
+.fleet__text {
+  margin: 0 0 1.9rem;
+  font-family: var(--fleet-sans);
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--fleet-muted);
+}
+
+/* ---------- Card link ---------- */
+.fleet__link {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--fleet-sans);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  color: var(--fleet-text);
+  transition: color 0.35s ease, gap 0.35s ease;
+}
+
+.fleet__link:hover,
+.fleet__link:focus-visible {
+  color: var(--fleet-accent);
+  gap: 0.85rem;
+}
+
+/* =========================================================
+   Footnote
+   ========================================================= */
+.fleet__note {
+  margin-top: clamp(3.5rem, 6vw, 5rem);
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--fleet-line);
+  max-width: 40rem;
+  font-family: var(--fleet-sans);
+  font-size: 0.8125rem;
+  line-height: 1.7;
+  color: var(--fleet-muted);
+}
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+@media (max-width: 960px) {
+  .fleet__header {
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: clamp(2rem, 6vw, 3rem);
+  }
+
+  .fleet__grid {
+    grid-template-columns: 1fr;
+    gap: clamp(3rem, 8vw, 4.5rem);
+    perspective: none;
+  }
+
+  .fleet__card {
+    width: 100%;
+    max-width: 30rem;
+    margin-inline: auto;
+    padding-top: clamp(3rem, 12vw, 4.5rem);
+  }
+
+  /* Flatten the 3D on touch, keep the pop-out overlap */
+  .fleet__card:hover,
+  .fleet__card:focus-within {
+    transform: none;
+  }
+
+  .fleet__vehicle,
+  .fleet__card:hover .fleet__vehicle,
+  .fleet__card:focus-within .fleet__vehicle {
+    transform: none;
+  }
+
+  .fleet__shadow {
+    transform: translateX(-50%);
+  }
+}
+
+/* =========================================================
+   Motion preferences
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+  .fleet__card,
+  .fleet__vehicle,
+  .fleet__shadow,
+  .fleet__panel,
+  .fleet__link {
+    transition: none !important;
+  }
+
+  .fleet__card:hover,
+  .fleet__card:focus-within {
+    transform: none;
+  }
+
+  .fleet__card:hover .fleet__vehicle,
+  .fleet__card:focus-within .fleet__vehicle {
+    transform: translateZ(90px) scale(1.02);
+  }
+}
